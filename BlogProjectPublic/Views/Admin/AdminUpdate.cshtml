@@ -1,0 +1,39 @@
+﻿
+@model EntityLayer.Concrete.Admin
+
+@{
+    ViewBag.Title = "AdminUpdate";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="col-xl-12 col-xxl-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Admin Bilgileri Güncelleme</h4>
+        </div>
+        <div class="card-body">
+            <div class="basic-form">
+                @using (Html.BeginForm("AdminUpdate", "Admin", FormMethod.Post))
+                {
+                    @Html.HiddenFor(x => x.Id, new { @class = "form-control input-default" })
+                    <div class="form-group">
+                        @Html.Label("Başlık")
+                        @Html.TextBoxFor(x => x.Username, new { @class = "form-control input-default", @required = "required" })
+                        @Html.ValidationMessageFor(x => x.Username, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Şifre")
+                        @Html.TextBoxFor(x => x.Password, new { @class = "form-control input-default", @required = "required" })
+                        @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+                    </div><div class="form-group">
+                        @Html.Label("Rol : B(Site Yetki), C(Blog Yetki), D(İletişim Yetki)")
+                        @Html.TextBoxFor(x => x.Role, new { @class = "form-control input-default", @required = "required" })
+                        @Html.ValidationMessageFor(x => x.Role, "", new { @class = "text-danger" })
+                    </div>
+                    <button type="submit" class="btn btn-primary">Güncelle</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

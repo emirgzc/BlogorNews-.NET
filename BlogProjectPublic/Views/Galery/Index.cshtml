@@ -1,0 +1,44 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Galery>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AnaLayout.cshtml";
+}
+
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content">
+                    <h1 class="page-name">Galeri</h1>
+                    <ol class="breadcrumb">
+                        <li><a href="/Ana/Index/">Anasayfa</a></li>
+                        <li class="active">Galeri</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section instagram-feed">
+    <div class="container">
+        <div class="row">
+            <div class="title">
+                <h2>Galeri</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-3">
+                        <a href="@item.Image" target="_blank"><img class="img-responsive" src="@item.Image" /></a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,28 @@
+﻿
+@model EntityLayer.Concrete.Contact
+
+<div class="col-md-3">
+    <a href="/WriterPanelMessage/AddNewMessage/" class="btn btn-primary btn-block mb-3">Yeni Mesaj Oluştur</a>
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Seçenekler</h3>
+        </div>
+        <div class="card-body p-0">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item active">
+                    <a href="/WriterPanelMessage/Inbox/" class="nav-link">
+                        <i class="fa fa-inbox"></i> Gelen Mesajlar
+                        <span class="badge bg-warning float-right">@ViewBag.inboxCount</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/WriterPanelMessage/SendBox/" class="nav-link">
+                        <i class="fa fa-envelope"></i> Gönderilen Mesajlar
+                        <span class="badge bg-warning float-right">@ViewBag.sendCount</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.card-body -->
+    </div>
+</div>

@@ -1,0 +1,70 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Blog>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AnaLayout.cshtml";
+}
+
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content">
+                    <h1 class="page-name">Blog</h1>
+                    <ol class="breadcrumb">
+                        <li><a href="/Ana/Index/">Anasayfa</a></li>
+                        <li class="active">Tüm Bloglar</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="page-wrapper">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6">
+                    <div class="post" style="width:560px;height:680px;">
+                        <div class="post-thumb">
+                            <a href="/Blog/BlogDetails/@item.BlogId">
+                                <img class="img-responsive" src="@item.Image" alt="">
+                            </a>
+                        </div>
+                        <h2 class="post-title"><a href="/Blog/BlogDetails/@item.BlogId">@item.Title</a></h2>
+                        <div class="post-meta">
+                            <ul>
+                                <li>
+                                    <i class="tf-ion-ios-calendar"></i> @item.BlogDate.ToString("d MMMMM yyy")
+                                </li>
+                                <li>
+                                    <i class="tf-ion-android-person"></i> @item.Writer.Name
+                                </li>
+                                <li>
+                                    <i class="tf-ion-android-star text-danger"></i> @item.BlogRating
+                                </li>
+                                <li>
+                                    <a href="/Blog/BlogByCategory/@item.CatId" target="_blank"><i class="tf-ion-paper-airplane"></i> @item.Category.Title</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="post-content">
+                            <p>@item.Value.Substring(0, item.Value.Substring(0, 200).LastIndexOf(" "))...</p>
+                            <a href="/Blog/BlogDetails/@item.BlogId" class="btn btn-main">Devamını Oku</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@*@Html.PagedListPager((IPagedList)Model, p => Url.Action("Index", new { p }), new
+        PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+        { "page-link" }
+})*@

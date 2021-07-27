@@ -1,0 +1,27 @@
+﻿
+@model EntityLayer.Concrete.Category
+
+@{
+    ViewBag.Title = "ACategoryEdit";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="col-md-12">
+    <form class="form-group card card-primary" method="post">
+        <div class="card-header">
+            <h3 class="card-title">Yazar Güncelleme</h3>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                @Html.HiddenFor(x => x.CatId)
+            </div>
+            <div class="form-group">
+                @Html.Label("Kategori Adı")
+                @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Title, "", new { @class = "text-danger" })
+            </div>
+            <button class="btn btn-info">Güncelle</button>
+        </div>
+    </form>
+</div>
+

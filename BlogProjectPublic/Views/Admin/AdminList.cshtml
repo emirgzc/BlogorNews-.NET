@@ -1,0 +1,72 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Admin>
+
+@{
+    ViewBag.Title = "AdminList";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<button class="btn btn-info mb-2" data-toggle="modal" data-target="#Modal1">Yeni Admin</button>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="active-member">
+                    <div class="table-responsive">
+                        <table class="table table-xs mb-0">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Kullanıcı Adı</th>
+                                    <th>Rol</th>
+                                    <th>Sil</th>
+                                    <th>Güncelle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>#</td>
+                                        <td>@item.Username</td>
+                                        <td>@item.Role</td>
+                                        <td><a href="/Admin/AdminDelete/@item.Id" class="fa fa-close btn btn-danger"> Sil</a></td>
+                                        <td><a href="/Admin/AdminUpdate/@item.Id" class="fa fa-check btn btn-success"> Güncelle</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Yeni Admin Ekleme Paneli</h3>
+            </div>
+            <form action="/Admin/AddAdmin/" method="post">
+                <div class="modal-body">
+                    <label>Admin Kullanıcı Adı</label>
+                    <input type="text" name="Username" class="form-control" maxlength="25" required=""/>
+                    <br />
+                    <label>Admin Şifre</label>
+                    <input type="password" name="Password" class="form-control" maxlength="25" required=""/>
+                    <br />
+                    <label>Yetki:</label>
+                    <select class="form-control" name="Role">
+                        <option value="B">Site Denetleyici</option>
+                        <option value="C">Blog Denetleyici</option>
+                        <option value="D" selected>İletişim Denetleyici</option>
+                    </select>
+                    <br />
+                    <button class="btn btn-info">Ekle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Team>
+
+@{
+    ViewBag.Title = "ATeamList";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<a href="/Team/ATeamAdd/" class="btn btn-primary mb-3">Ekle</a>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="profile-blog pt-1 pb-1">
+                        <img src="@item.Image" alt="" class="img-fluid mt-1 mb-4 w-100">
+                        <h4>@item.Name</h4>
+                        <h6 class="mb-3">@item.Job</h6>
+                        @if (item.Status == true)
+                        {
+                            <a href="/Team/ATeamStatusDoFalse/@item.Id" class="btn btn-danger">Pasif Yap</a>
+                        }
+                        else
+                        {
+                            <a href="/Team/ATeamStatusDoTrue/@item.Id" class="btn btn-success">Aktif Yap</a>
+                        }
+                        <a href="/Team/ATeamUpdate/@item.Id" class="btn btn-info">Güncelle</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+

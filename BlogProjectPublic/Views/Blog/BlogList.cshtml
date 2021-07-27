@@ -1,0 +1,18 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Blog>
+
+<div class="widget widget-latest-post">
+    <h4 class="widget-title">Diğer Bloglar</h4>
+    @foreach (var item in Model)
+    {
+        <div class="media">
+            <a class="pull-left" href="/Blog/BlogDetails/@item.BlogId">
+                <img class="media-object" src="@item.Image" alt="Image">
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Blog/BlogDetails/@item.BlogId">@item.Title</a></h4>
+                <p>@item.Value.Substring(0, item.Value.Substring(0, 100).LastIndexOf(" "))...</p>
+            </div>
+        </div>
+    }
+</div>

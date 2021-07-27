@@ -1,0 +1,38 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Galery>
+
+@{
+    ViewBag.Title = "AGaleryList";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<a href="/Galery/AGaleryAdd/" class="btn btn-primary mb-3">Resim Ekle</a>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="profile-tab">
+                        <div class="custom-tab-1">
+                            <div class="tab-content">
+                                <div id="my-posts" class="tab-pane fade active show">
+                                    <div class="my-post-content pt-3">
+                                        <div class="profile-uoloaded-post pb-3">
+                                            <a href="@item.Image" target="_blank"><img src="@item.Image" alt="" class="img-fluid"></a>
+                                        </div>
+                                        <a href="/Galery/AGaleryDelete/@item.Id" class="btn btn-primary mr-3 mb-3">
+                                                <i class="fa fa-trash"></i> Sil
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

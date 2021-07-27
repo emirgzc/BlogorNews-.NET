@@ -1,0 +1,41 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Blog>
+
+@{
+    ViewBag.Title = "MyBlogs";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<a href="/WriterPanel/NewBlog/" class="btn btn-primary mb-3">Yeni Ekle</a>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center">
+                        <img src="@item.Image" alt="" class="img-fluid mb-2">
+                        <h5 class="mt-3 mb-1">@item.Title</h5>
+                        <p class="m-0 p-1">@item.BlogDate.ToString("d MMMMM yyy") / @item.Category.Title</p>
+                        <p class="m-0 p-1"><span class="fa fa-star text-danger"></span> @item.BlogRating </p>
+                        @if (item.Status == true)
+                        {
+                            <p class="m-0 p-1 text-success">Yayında / Onaylanmış</p>
+                        }
+                        else
+                        {
+                            <p class="m-0 p-1 text-danger">Yayında Değil / Onay Bekliyor</p>
+                        }
+                        <br />
+                    </div>
+                    <div class="text-center mb-2">
+                        <a href="/Blog/BlogDetails/@item.BlogId" target="_blank" class="btn btn-primary">Detaylar</a>
+                        <a href="/WriterPanel/UpdateBlog/@item.BlogId" class="btn btn-success">Güncelle</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

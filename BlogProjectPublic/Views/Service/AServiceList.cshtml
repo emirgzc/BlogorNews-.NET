@@ -1,0 +1,59 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Service>
+
+@{
+    ViewBag.Title = "AServiceList";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Hizmet Listesi</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-responsive-sm">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Başlık</th>
+                            <th>Durum</th>
+                            <th>İşlem</th>
+                            <th>Sil</th>
+                            <th>Güncelle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th>#</th>
+                                <td>@item.Title</td>
+                                @if (item.Status == true)
+                                {
+                                    <td class="text-success">@item.Status</td>
+                                }
+                                else
+                                {
+                                    <td class="text-danger">@item.Status</td>
+                                }
+                                @if (item.Status == true)
+                                {
+                                    <td><a href="/Service/AServiceDoFalse/@item.Id" class="btn btn-danger">Pasif Yap</a></td>
+                                }
+                                else
+                                {
+                                    <td><a href="/Service/AServiceDoTrue/@item.Id" class="btn btn-success">Aktif Yap</a></td>
+                                }
+                                <td><a href="/Service/AServiceDelete/@item.Id" class="btn btn-warning">Sil</a></td>
+                                <td><a href="/Service/AServiceUpdate/@item.Id" class="btn btn-success">Güncelle</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/Service/AServiceAdd/" class="btn btn-secondary">Ekle</a>
+            </div>
+        </div>
+    </div>
+</div>

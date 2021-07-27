@@ -1,0 +1,31 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Blog>
+
+@{
+    ViewBag.Title = "BlogDetails";
+    Layout = "~/Views/Shared/AnaLayout.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="post">
+                    @Html.Action("BlogCover", "Blog")
+                    @Html.Action("BlogReadAll", "Blog")                    
+                    @Html.Action("CommentList", "Comment")             
+
+                    @Html.Action("LeaveComment","Comment")
+                </div>
+            </div>
+            <div class="col-md-4">
+                <aside class="sidebar">
+                    @Html.Action("BlogList","Blog")
+
+                    @Html.Action("BlogKategoriList","Category")
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,74 @@
+﻿
+@model EntityLayer.Concrete.Settings
+
+@{
+    ViewBag.Title = "ASettingUpdate";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="col-xl-12 col-xxl-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Site Ayar Bilgileri Güncelleme</h4>
+        </div>
+        <div class="card-body">
+            <div class="basic-form">
+                @using (Html.BeginForm("ASettingUpdate", "Settings", FormMethod.Post))
+                {
+                    @Html.HiddenFor(x => x.Id, new { @class = "form-control input-default", @required = "required" })
+                    <div class="form-group">
+                        @Html.Label("Adres")
+                        @Html.TextBoxFor(x => x.Address, new { @class = "form-control input-default", @required = "required" })
+                        @Html.ValidationMessageFor(x => x.Address, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Telefon")
+                        @Html.TextBoxFor(x => x.Phone, new { @class = "form-control input-default", @required = "required" })
+                        @Html.ValidationMessageFor(x => x.Phone, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Mail")
+                        @Html.TextBoxFor(x => x.Email, new { @class = "form-control input-default", @required = "required" })
+                        @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Harita")
+                        @Html.TextAreaFor(x => x.Map, 5, 25, new { @class = "form-control input-default", @required = "required" })
+                        @Html.ValidationMessageFor(x => x.Map, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Yönetici")
+                        @Html.TextBoxFor(x => x.DirectorName, new { @class = "form-control input-default", @required = "required" })
+                        @Html.ValidationMessageFor(x => x.DirectorName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Facebook")
+                        @Html.TextBoxFor(x => x.Facebook, new { @class = "form-control input-default", @required = "required" })
+                        @Html.ValidationMessageFor(x => x.Facebook, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Twitter")
+                        @Html.TextBoxFor(x => x.Twitter, new { @class = "form-control input-default", @required = "required" })
+                        @Html.ValidationMessageFor(x => x.Twitter, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Instagram")
+                        @Html.TextBoxFor(x => x.Instagram, new { @class = "form-control input-default", @required = "required" })
+                        @Html.ValidationMessageFor(x => x.Instagram, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Linkedin")
+                        @Html.TextBoxFor(x => x.Linkedin, new { @class = "form-control input-default", @required = "required" })
+                        @Html.ValidationMessageFor(x => x.Linkedin, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Youtube")
+                        @Html.TextBoxFor(x => x.Youtube, new { @class = "form-control input-default", @required = "required" })
+                        @Html.ValidationMessageFor(x => x.Youtube, "", new { @class = "text-danger" })
+                    </div>
+                    <button type="submit" class="btn btn-primary">Güncelle</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>

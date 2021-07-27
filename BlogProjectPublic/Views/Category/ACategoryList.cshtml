@@ -1,0 +1,101 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Category>
+
+@{
+    ViewBag.Title = "ACategoryList";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<body class="hold-transition sidebar-mini">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        <button class="btn btn-success mb-2" data-toggle="modal" data-target="#Modal1">Yeni Kategori</button>
+        <section class="content">
+
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-body p-0">
+                    <table class="table table-striped projects">
+                        <thead>
+                            <tr>
+                                <th>
+                                    İd
+                                </th>
+                                <th>
+                                    Kategori Adı
+                                </th>
+                                <th>
+                                    Durum
+                                </th>
+                                <th>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var x in Model)
+                            {
+                                <tr>
+                                    <td>@x.CatId</td>
+                                    <td>
+                                        <a>@x.Title</a>
+                                        <br />
+                                    </td>
+                                    @{string stat = "";}
+                                    @if (x.Status == false)
+                                    {
+                                        stat = "danger";
+                                    }
+                                    @if (x.Status == true)
+                                    {
+                                        stat = "success";
+                                    }
+                                    <td class="project-state">
+                                        <span class="badge badge-@stat">@x.Status</span>
+                                    </td>
+
+                                    <td class="project-actions text-right">
+                                        <a class="btn btn-primary btn-sm" target="_blank" href="/Blog/BlogByCategory/@x.CatId">
+                                            Bloglar
+                                        </a>
+                                        <a class="btn btn-info btn-sm" href="/Category/ACategoryEdit/@x.CatId">
+                                            Düzenle
+                                        </a>
+                                        @if (x.Status == true)
+                                        {
+                                            <a href="/Category/CategoryStatusFalse/@x.CatId" class="btn btn-danger btn-sm">Pasif Yap</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="/Category/CategoryStatusTrue/@x.CatId" class="btn btn-success btn-sm">Aktif Yap</a>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <div class="modal" id="Modal1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Yeni Kategori Ekleme Paneli</h3>
+                    </div>
+                    <form action="/Category/AdminCategoryAdd/" method="post">
+                        <div class="modal-body">
+                            <label>Kategori Adı</label>
+                            <input type="text" name="Title" class="form-control" />
+                            <br />
+                            <button class="btn btn-info">Ekle</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

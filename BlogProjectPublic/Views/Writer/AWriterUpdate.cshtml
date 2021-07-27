@@ -1,0 +1,41 @@
+﻿
+@model EntityLayer.Concrete.Writer
+
+@{
+    ViewBag.Title = "AWriterUpdate";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("AWriterUpdate", "Writer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.WriterId, new { @class = "form-control" })
+
+    @Html.Label("Yazar Adı")
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Yazar Meslek")
+    @Html.TextBoxFor(x => x.Job, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Job, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Yazar Ülke")
+    @Html.TextBoxFor(x => x.Country, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Country, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Yazar Mail")
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Yazar Doğum Tarihi")
+    @Html.TextBoxFor(x => x.DateOfBirth, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.DateOfBirth, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Yazar Şifre")
+    @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+    <br />
+    <button class="btn btn-info">Güncelle</button>
+</div>
+}
+

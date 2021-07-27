@@ -1,0 +1,52 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Writer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AnaLayout.cshtml";
+}
+
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content">
+                    <h1 class="page-name">Yazarlar</h1>
+                    <ol class="breadcrumb">
+                        <li><a href="/Ana/Index/">Anasayfa</a></li>
+                        <li class="active">Yazarlar</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="user-dashboard page-wrapper">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6">
+                    <div class="dashboard-wrapper dashboard-user-profile">
+                        <div class="media">
+                            <div class="pull-left text-center" href="#!">
+                                <img class="media-object user-img" src="@item.Image" alt="Image">
+                                <a href="#x" class="btn btn-transparent mt-20">Resim</a>
+                            </div>
+                            <div class="media-body">
+                                <ul class="user-profile-list">
+                                    <li><span>İsim Soyisim :</span>@item.Name</li>
+                                    <li><span>Ülke :</span>@item.Country</li>
+                                    <li><span>Mail Adresi :</span>@item.Email</li>
+                                    <li><span>Meslek :</span>@item.Job</li>
+                                    <li><span>Doğum Tarihi:</span>@item.DateOfBirth</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+

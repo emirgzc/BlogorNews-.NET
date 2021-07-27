@@ -1,0 +1,16 @@
+﻿
+@model EntityLayer.Concrete.Comment
+
+<div class="email-left-box">
+    <a href="#" class="btn btn-primary btn-block">Yorumlar</a>
+    <div class="mail-list mt-4">
+        <a href="/Comment/ACommentNewList/" class="list-group-item border-0 p-r-0">
+            <i class="fa fa-inbox font-18 align-middle mr-2"></i> Onaylı Yorumlar
+            <span class="badge badge-primary badge-sm float-right m-t-5"> @ViewBag.truee</span>
+        </a>
+        <a href="/Comment/ACommentFalseList/" class="list-group-item border-0 p-r-0">
+            <i class="fa fa-paper-plane font-18 align-middle mr-2"></i>Onaysız Yorumlar
+            <span class="badge badge-primary badge-sm float-right m-t-5"> @ViewBag.falsee</span>
+        </a>
+    </div>
+</div>

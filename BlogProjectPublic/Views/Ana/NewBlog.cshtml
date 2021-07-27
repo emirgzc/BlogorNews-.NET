@@ -1,0 +1,40 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Blog>
+
+<section class="product-category section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title text-center">
+                    <h2>Yeni Bloglar</h2>
+                </div>
+            </div>
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6">
+                <div class="product-item">
+                    <div class="product-thumb">
+                        <span class="bage">@item.Category.Title</span>
+                        <img class="img-responsive" src="@item.Image" alt="product-img" />
+                        <div class="preview-meta">
+                            <ul>
+                                <li>
+                                    <span data-toggle="modal" data-target="#product-modal">
+                                        <a href="/Blog/BlogDetails/@item.BlogId"><i class="tf-ion-ios-search-strong"></i></a>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h4><a href="/Blog/BlogDetails/@item.BlogId">@item.Title</a></h4>
+                        <p class="price">@item.BlogDate.ToString("d MMMMM yyy")</p>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+
+

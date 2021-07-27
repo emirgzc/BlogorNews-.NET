@@ -1,0 +1,48 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Settings>
+
+<footer class="footer section text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="social-media">
+                    @foreach (var item in Model)
+                    {
+                        <li>
+                            <a href="@item.Facebook">
+                                <i class="tf-ion-social-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@item.Instagram">
+                                <i class="tf-ion-social-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@item.Twitter">
+                                <i class="tf-ion-social-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@item.Linkedin">
+                                <i class="tf-ion-social-linkedin"></i>
+                            </a>
+                        </li>
+                    }
+                </ul>
+                <ul class="footer-menu text-uppercase">
+                    <li>
+                        <a href="/Ana/Index/">Anasayfa</a>
+                    </li>
+                    <li>
+                        <a href="/Contact/Index/">İletişim</a>
+                    </li>
+                    <li>
+                        <a href="pricing.html">Yazar Girişi</a>
+                    </li>
+                </ul>
+                <p class="copyright-text">Copyright &copy;2021, Designed &amp; Developed by <a href="#">Emirgzc_</a></p>
+            </div>
+        </div>
+    </div>
+</footer>

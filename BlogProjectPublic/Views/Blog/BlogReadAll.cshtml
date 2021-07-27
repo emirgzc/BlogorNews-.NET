@@ -1,0 +1,9 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Blog>
+
+@foreach (var item in Model)
+{
+    <div class="post-content">
+        <p>@item.Value</p>
+    </div>
+}

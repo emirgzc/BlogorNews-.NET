@@ -1,0 +1,66 @@
+﻿
+@model EntityLayer.Concrete.Writer
+
+@{
+    ViewBag.Title = "AWriterAdd";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="col-xl-12 col-xxl-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Yazar Ekleme</h4>
+            @if (ViewBag == null)
+            {
+                <h5 class="text-success">Yükleme Başarılı</h5>
+            }
+            else
+            {
+                <h5 class="text-danger">@ViewBag.hata</h5>
+            }
+        </div>
+        <div class="card-body">
+            <div class="basic-form">
+                @using (Html.BeginForm("AWriterAdd", "Writer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="form-group">
+                        <label>İsim Soyisim</label>
+                        <input type="text" name="Name" required="" class="form-control input-default">
+                        @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>Meslek</label>
+                        <input type="text" required="" class="form-control input-default" name="Job">
+                        @Html.ValidationMessageFor(x => x.Job, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>Ülke</label>
+                        <input type="text" required="" class="form-control input-default" name="Country">
+                        @Html.ValidationMessageFor(x => x.Country, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>Mail</label>
+                        <input type="text" required="" class="form-control input-default" name="Email">
+                        @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>Doğum Tarihi</label>
+                        <input type="text" required="" class="form-control input-default" name="DateOfBirth">
+                        @Html.ValidationMessageFor(x => x.DateOfBirth, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>Şifre</label>
+                        <input type="password" required="" class="form-control input-default" name="Password">
+                        @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" name="Image" class="custom-file-input">
+                        <label class="custom-file-label">Resim Seç</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Ekle</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

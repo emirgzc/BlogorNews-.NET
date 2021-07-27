@@ -1,0 +1,34 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Comment>
+
+<div class="post-comments">
+    <h3 class="post-sub-heading">@Model.Count() Yorum</h3>
+    <ul class="media-list comments-list m-bot-50 clearlist">
+
+        @foreach (var item in Model)
+        {
+            <li class="media">
+
+                <a class="pull-left" href="#!">
+                    <img class="media-object comment-avatar" src="~/quixlab/images/user/form-user.png" alt="" width="50" height="50">
+                </a>
+
+                <div class="media-body">
+                    <div class="comment-info">
+                        <h4 class="comment-author">
+                            <a href="#!">@item.Name @item.Surname</a>
+
+                        </h4>
+                        <time>@item.CommentDate.ToString("d MMMMM yyy") / @item.Email /
+                        <span class="tf-ion-android-star text-danger">@item.BlogRating</span></time>
+                    </div>
+
+                    <p>@item.Value</p>
+
+                </div>
+
+            </li>
+        }
+
+    </ul>
+</div>

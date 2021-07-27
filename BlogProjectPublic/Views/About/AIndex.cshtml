@@ -1,0 +1,38 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.About>
+
+@{
+    ViewBag.Title = "AIndex";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Hakkımızda Bilgileri</h4>
+            <div class="table-responsive">
+                <table class="table header-border">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Başlık</th>
+                            <th>Güncelle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>#</td>
+                                <td>@item.Title</td>
+                                <td><a href="/About/AAboutUpdate/@item.Id" class="btn btn-success fa fa-check"></a></td>
+                            </tr>
+                            
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

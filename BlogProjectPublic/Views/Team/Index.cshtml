@@ -1,0 +1,44 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Team>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AnaLayout.cshtml";
+}
+
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content">
+                    <h1 class="page-name">Takımımız</h1>
+                    <ol class="breadcrumb">
+                        <li><a href="/Ana/Index/">Anasayfa</a></li>
+                        <li class="active">Takım</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="team-members">
+    <div class="container">
+        <div class="row">
+            <div class="title"><h2>Takımımız</h2></div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3">
+                    <div class="team-member text-center">
+                        <img style="border-radius:5%;" class="img-responsive" src="@item.Image">
+                        <h4>@item.Name</h4>
+                        <p>@item.Job</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,39 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Comment>
+
+@{
+    ViewBag.Title = "ACommentNewList";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                @Html.Action("CommentMenu","Comment")
+                <div class="email-right-box">
+                    <div class="email-list m-t-15">
+                        @foreach (var item in Model)
+                        {
+                            <div class="message">
+                                <a href="/Comment/ACommentDetails/@item.CommentId">
+                                    <div class="col-mail col-mail-1">
+                                        <div class="email-checkbox">
+                                            <input type="checkbox" id="chk2">
+                                            <label class="toggle" for="chk2"></label>
+                                        </div><span class="star-toggle ti-star"></span>
+                                    </div>
+                                    <div class="col-mail col-mail-2">
+                                        <div class="subject">@item.Name @item.Surname / @item.Email / @item.Blogs.Title</div>
+                                        <div class="date">@item.CommentDate.ToString("d MMMMM yyy")</div>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

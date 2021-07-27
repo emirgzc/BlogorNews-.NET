@@ -1,0 +1,42 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.About>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AnaLayout.cshtml";
+}
+
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content">
+                    <h1 class="page-name">Hakkımızda</h1>
+                    <ol class="breadcrumb">
+                        <li><a href="/Ana/Index/">Anasayfa</a></li>
+                        <li class="active">Hakkımızda</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img class="img-responsive" src="~/aviato/images/resim/k.jpeg">
+            </div>
+            <div class="col-md-6">
+                @foreach (var item in Model)
+                {
+                    <h2 class="mt-40">@item.Title</h2>
+                    <p>@item.Value</p>
+                    <a href="/Contact/Index/" class="btn btn-main mt-20">Bize Ulaşın</a>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+

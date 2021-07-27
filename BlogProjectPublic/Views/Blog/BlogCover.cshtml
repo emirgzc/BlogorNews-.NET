@@ -1,0 +1,31 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Blog>
+
+@foreach (var item in Model)
+{
+    <div class="post-media post-thumb">
+        <a href="blog-single.html">
+            <img src="@item.Image" alt="">
+        </a>
+    </div>
+    <h2 class="post-title"><a href="#">@item.Title</a></h2>
+    <div class="post-meta">
+        <ul>
+            <li>
+                <i class="tf-ion-ios-calendar"></i> @item.BlogDate.ToString("d MMMMM yyy")
+            </li>
+            <li>
+                <i class="tf-ion-android-person"></i> @item.Writer.Name
+            </li>
+            <li>
+                <a href="/Blog/BlogByCategory/@item.CatId"><i class="tf-ion-ios-pricetags"></i> @item.Category.Title</a>
+            </li>
+            <li>
+                <a href="#!"><i class="tf-ion-chatbubbles"></i> @ViewBag.com Yorum</a>
+            </li>
+            <li>
+                <a href="#!" class="text-danger"><i class="tf-ion-android-star text-danger"></i> Rating : @item.BlogRating</a>
+            </li>
+        </ul>
+    </div>
+}
